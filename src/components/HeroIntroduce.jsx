@@ -76,7 +76,7 @@ const HeroIntroduce = () => {
               }`}
             >
               <span className="block">Fortalecendo</span>
-              <span className="block text-blue-600">Conexões Estratégicas</span>
+              <span className="block text-cyan-600">Conexões Estratégicas</span>
               <span className="block">entre Inovação Científica</span>
               <span className="block">e o Setor Produtivo</span>
             </h1>
@@ -92,7 +92,7 @@ const HeroIntroduce = () => {
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 Conectamos o conhecimento científico à inovação tecnológica,
                 oferecendo{" "}
-                <span className="text-blue-600 font-semibold">
+                <span className="text-cyan-600 font-semibold">
                   soluções estratégicas
                 </span>{" "}
                 que impulsionam a segurança cibernética em empresas públicas e
@@ -110,7 +110,7 @@ const HeroIntroduce = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <button className="group px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/25 hover:-translate-y-1">
+              <button className="group px-8 py-3 bg-cyan text-white bg-cyan-800 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-cyan hover:-translate-y-1">
                 <span className="flex items-center justify-center gap-2">
                   NOSSAS SOLUÇÕES
                   <svg
@@ -129,7 +129,7 @@ const HeroIntroduce = () => {
                 </span>
               </button>
 
-              <button className="px-8 py-3 border-2 border-slate-300 text-slate-700 hover:border-blue-600 hover:text-blue-600 font-semibold rounded-lg transition-all duration-300 hover:-translate-y-1">
+              <button className="px-8 py-3 border-2 border-slate-300 text-slate-700 hover:border-cyantext-cyan-600 hover:text-cyan-600 font-semibold rounded-lg transition-all duration-300 hover:-translate-y-1">
                 FALE CONOSCO
               </button>
             </div>
@@ -151,7 +151,7 @@ const HeroIntroduce = () => {
 
                 {/* Security Shield */}
                 <svg
-                  className="relative z-10 w-64 h-64 text-blue-600"
+                  className="relative z-10 w-64 h-64 text-cyan-600"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -165,7 +165,7 @@ const HeroIntroduce = () => {
                 {/* Floating Security Icons */}
                 <div className="absolute -top-8 -left-8 animate-pulse delay-1000">
                   <svg
-                    className="w-12 h-12 text-blue-400"
+                    className="w-12 h-12 text-cyan-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -179,7 +179,7 @@ const HeroIntroduce = () => {
 
                 <div className="absolute -bottom-8 -right-8 animate-pulse delay-500">
                   <svg
-                    className="w-16 h-16 text-blue-400"
+                    className="w-16 h-16 text-cyan-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -189,7 +189,7 @@ const HeroIntroduce = () => {
 
                 <div className="absolute top-1/2 -right-12 animate-pulse delay-700">
                   <svg
-                    className="w-10 h-10 text-blue-400"
+                    className="w-10 h-10 text-cyan-400"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -212,19 +212,19 @@ const HeroIntroduce = () => {
           }`}
         >
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-all duration-300">
-            <div className="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
+            <div className="text-3xl lg:text-4xl font-bold text-cyan-600 mb-2">
               24/7
             </div>
             <div className="text-slate-600">Monitoramento Contínuo</div>
           </div>
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-all duration-300">
-            <div className="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
+            <div className="text-3xl lg:text-4xl font-bold text-cyan-600 mb-2">
               99.9%
             </div>
             <div className="text-slate-600">Disponibilidade Garantida</div>
           </div>
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-slate-200 hover:shadow-lg transition-all duration-300">
-            <div className="text-3xl lg:text-4xl font-bold text-blue-600 mb-2">
+            <div className="text-3xl lg:text-4xl font-bold text-cyan-600 mb-2">
               +500
             </div>
             <div className="text-slate-600">Empresas Protegidas</div>
