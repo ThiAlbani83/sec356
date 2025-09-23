@@ -1,10 +1,10 @@
 import React from "react";
-import HeroCyber from "../components/HeroCyber";
+import HeroIntroduce from "../components/HeroIntroduce";
 
 const Home = () => {
   return (
     <div>
-      <HeroCyber />
+      <HeroIntroduce />
     </div>
   );
 };
