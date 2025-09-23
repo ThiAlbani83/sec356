@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logoVerde from "../assets/logoVerde.png";
 import DropdownMenu from "./DropdownMenu";
 import MobileMenu from "./MobileMenu";
@@ -61,7 +62,7 @@ const Navbar = () => {
       {/* Desktop Menu */}
       <ul className="hidden md:flex text-base text-white items-center gap-4 lg:gap-6 xl:gap-8 font-roboto">
         <li className="hover:text-primary transition-colors">
-          <a href="/">Início</a>
+          <Link to="/">Início</Link>
         </li>
 
         <DropdownMenu
@@ -83,7 +84,7 @@ const Navbar = () => {
         />
 
         <li className="hover:text-primary transition-colors">
-          <a href="/academy">Academia</a>
+          <Link to="/academy">Academia</Link>
         </li>
 
         <DropdownMenu
@@ -96,7 +97,7 @@ const Navbar = () => {
         />
 
         <li className="hover:text-primary transition-colors">
-          <a href="/contact">Contato</a>
+          <Link to="/contact">Contato</Link>
         </li>
       </ul>
 

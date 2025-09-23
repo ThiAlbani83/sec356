@@ -1,4 +1,5 @@
 import { GoChevronDown } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const DropdownMenu = ({
   title,
@@ -23,13 +24,13 @@ const DropdownMenu = ({
           className={`absolute top-full left-0 mt-0 ${width} max-w-[90vw] bg-backgrond rounded-lg shadow-lg py-3 z-50 border border-gray-700`}
         >
           {items.map((item, index) => (
-            <a
+            <Link
               key={index}
-              href={item.href}
+              to={item.href}
               className="block px-4 py-2 hover:text-primary text-white transition-colors"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}

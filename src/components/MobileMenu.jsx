@@ -1,4 +1,5 @@
 import { GoChevronDown } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const MobileMenu = ({
   isOpen,
@@ -32,13 +33,13 @@ const MobileMenu = ({
                   <ul className="pl-4 mt-2 space-y-1">
                     {item.items.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <a
-                          href={subItem.href}
+                        <Link
+                          to={subItem.href}
                           onClick={onCloseMenu}
                           className="block py-1 text-gray-300 hover:text-primary transition-colors"
                         >
                           {subItem.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -46,13 +47,13 @@ const MobileMenu = ({
               </>
             ) : (
               // Regular link
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 onClick={onCloseMenu}
                 className="block py-2 text-white hover:text-primary transition-colors"
               >
                 {item.title}
-              </a>
+              </Link>
             )}
           </li>
         ))}
