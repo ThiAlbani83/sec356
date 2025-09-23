@@ -19,62 +19,66 @@ import MissionVisionValuesPurposes from "./pages/about/MissionVisionValuesPurpos
 import CodeofEthicsConduct from "./pages/about/CodeofEthicsConduct";
 import Contact from "./pages/contact/Contact";
 import PoliticasDePrivacidade from "./pages/about/PoliticasDePrivacidade";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/services/managed_security_services"
-          element={<Securityservices />}
-        />
-        <Route
-          path="/services/vulnerability_management"
-          element={<GestaoVulnerabilidade />}
-        />
-        <Route
-          path="/services/threat_intelligence"
-          element={<ThreatIntelligence />}
-        />
-        <Route
-          path="/services/corporative_phishing"
-          element={<CorporativePhishing />}
-        />
-        <Route path="/services/intrusion_testing" element={<Pentest />} />
-        <Route
-          path="/services/purple_team_assessment"
-          element={<PurpleTeamAssessment />}
-        />
-        <Route path="/services/siem_saas" element={<SiemSaas />} />
-        <Route path="/consulting/lgpd_dpo" element={<LgpdDpo />} />
-        <Route
-          path="/consulting/ciso_as_a_service"
-          element={<CisoAsAService />}
-        />
-        <Route path="/consulting/ciso_advisory" element={<CisoAdvisory />} />
-        <Route
-          path="/consulting/computer_forensics"
-          element={<ComputerForensics />}
-        />
-        <Route path="/academy" element={<Academy />} />
-        <Route path="/about/our_methodology" element={<OurMethodology />} />
-        <Route path="/about/our_team" element={<OurTeam />} />
-        <Route
-          path="/about/mission_vision_values_purposes"
-          element={<MissionVisionValuesPurposes />}
-        />
-        <Route
-          path="/about/privacy_policies"
-          element={<PoliticasDePrivacidade />}
-        />
-        <Route
-          path="/about/code_of_ethics_conduct"
-          element={<CodeofEthicsConduct />}
-        />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div className="pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/services/managed_security_services"
+            element={<Securityservices />}
+          />
+          <Route
+            path="/services/vulnerability_management"
+            element={<GestaoVulnerabilidade />}
+          />
+          <Route
+            path="/services/threat_intelligence"
+            element={<ThreatIntelligence />}
+          />
+          <Route
+            path="/services/corporative_phishing"
+            element={<CorporativePhishing />}
+          />
+          <Route path="/services/intrusion_testing" element={<Pentest />} />
+          <Route
+            path="/services/purple_team_assessment"
+            element={<PurpleTeamAssessment />}
+          />
+          <Route path="/services/siem_saas" element={<SiemSaas />} />
+          <Route path="/consulting/lgpd_dpo" element={<LgpdDpo />} />
+          <Route
+            path="/consulting/ciso_as_a_service"
+            element={<CisoAsAService />}
+          />
+          <Route path="/consulting/ciso_advisory" element={<CisoAdvisory />} />
+          <Route
+            path="/consulting/computer_forensics"
+            element={<ComputerForensics />}
+          />
+          <Route path="/academy" element={<Academy />} />
+          <Route path="/about/our_methodology" element={<OurMethodology />} />
+          <Route path="/about/our_team" element={<OurTeam />} />
+          <Route
+            path="/about/mission_vision_values_purposes"
+            element={<MissionVisionValuesPurposes />}
+          />
+          <Route
+            path="/about/privacy_policies"
+            element={<PoliticasDePrivacidade />}
+          />
+          <Route
+            path="/about/code_of_ethics_conduct"
+            element={<CodeofEthicsConduct />}
+          />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+      <Footer />
     </>
   );
 }

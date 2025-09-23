@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-32 py-6 border-b border-gray-300 bg-backgrond relative">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-32 py-6 border-b border-gray-300 bg-backgrond">
       <div>
         <img src={logoVerde} alt="logo" className="h-10 sm:h-12" />
       </div>
