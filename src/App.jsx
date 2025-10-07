@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Securityservices from "./pages/services/Securityservices";
@@ -22,6 +22,9 @@ import PoliticasDePrivacidade from "./pages/about/PoliticasDePrivacidade";
 import Footer from "./components/Footer";
 
 function App() {
+  const location = useLocation();
+  const hideFooter = location.pathname === "/contact";
+
   return (
     <>
       <Navbar />
@@ -78,7 +81,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-      <Footer />
+      {!hideFooter && <Footer />}
     </>
   );
 }
