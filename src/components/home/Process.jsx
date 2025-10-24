@@ -213,7 +213,17 @@ const Process = () => {
               Entre em contato conosco e inicie sua jornada para uma
               cibersegurança de excelência.
             </p>
-            <button className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
+            <button
+              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/contact";
+                }
+              }}
+            >
               Iniciar Projeto
             </button>
           </div>

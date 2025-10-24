@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Consultorias = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -10,50 +12,58 @@ const Consultorias = () => {
 
   const consultorias = [
     {
-      title: "Adequação LGPD + DPO as a Service",
+      title: "Adequação LGPD + DPO",
       description:
-        "Nossa solução exclusiva enfrenta os desafios da LGPD, garantindo conformidade. Com uma equipe técnica e jurídica especializada, orientamos sua empresa na proteção de dados, assegurando responsabilidade e segurança da informação.",
+        "Nossa solução enfrenta os desafios da LGPD, garantindo conformidade. Com uma equipe especializada, orientamos sua empresa na proteção de dados, assegurando responsabilidade e segurança da informação.",
       icon: "⚖️",
-      route: "/consulting/lgpd-dpo",
+      route: "/consulting/lgpd_dpo",
       gradient: "from-emerald-500 to-teal-600",
       bgPattern: "legal",
     },
     {
-      title:
-        "Auditorias e Perícias de Conformidade Aplicadas ao Ciclo Contratual",
+      title: "Auditorias de Conformidade",
       description:
-        "Essa modalidade consiste em avaliar e assegurar a conformidade dos contratos de TI. A análise abrange pré-contratos e contratos existentes para garantir alinhamento com normas legais e expectativas do negócio, certificando-se de que todos os aspectos contratuais estejam em conformidade.",
+        "Avaliamos e asseguramos a conformidade dos contratos de TI através de análise detalhada. Abrangemos pré-contratos e contratos existentes para garantir alinhamento com normas legais e expectativas do negócio.",
       icon: "📋",
-      route: "/consulting/auditorias-pericias",
+      route: "/consulting/computer_forensics",
       gradient: "from-blue-500 to-cyan-600",
       bgPattern: "audit",
     },
     {
       title: "CISO as a Service",
       description:
-        "O serviço de CISO as a Service abrange diversas responsabilidades em uma organização, representando um desafio que ultrapassa a capacidade individual, tanto em aspectos técnicos quanto de disponibilidade. Isso é crucial em um contexto onde o tempo é limitado.",
+        "Serviço completo de liderança em segurança cibernética. Oferecemos expertise executiva em segurança da informação para organizações que precisam de gestão estratégica sem os custos de contratação integral.",
       icon: "👨‍💼",
-      route: "/consulting/ciso-as-service",
+      route: "/consulting/ciso_as_a_service",
       gradient: "from-purple-500 to-indigo-600",
       bgPattern: "executive",
     },
     {
       title: "CISO Advisory",
       description:
-        "Assessoria especializada para definir uma visão estratégica alinhada às últimas tendências em segurança cibernética. Fundamental para reduzir riscos corporativos, aumentar a maturidade e gerenciar de forma eficaz os programas de segurança cibernética da sua empresa.",
+        "Assessoria estratégica alinhada às últimas tendências em segurança cibernética. Reduzimos riscos corporativos, aumentamos a maturidade organizacional e gerenciamos programas de segurança de forma eficaz.",
       icon: "🎯",
-      route: "/consulting/ciso-advisory",
+      route: "/consulting/ciso_advisory",
       gradient: "from-orange-500 to-red-600",
       bgPattern: "strategy",
     },
     {
       title: "Perícia Forense Computacional",
       description:
-        "A Perícia Forense Computacional é crucial para investigar crimes cibernéticos, fraudes e incidentes de segurança. Nossa análise detalhada produz laudos periciais que fornecem embasamento técnico-científico para decisões judiciais fundamentadas.",
+        "Investigação técnica especializada em crimes cibernéticos, fraudes e incidentes de segurança. Nossa análise detalhada produz laudos periciais com embasamento técnico-científico para decisões judiciais.",
       icon: "🔬",
       route: "/consulting/computer-forensics",
       gradient: "from-slate-500 to-gray-700",
       bgPattern: "forensics",
+    },
+    {
+      title: "Gestão de Riscos Cibernéticos",
+      description:
+        "Identificação, análise e mitigação de riscos em segurança da informação. Desenvolvemos estratégias personalizadas para proteger ativos digitais e garantir continuidade dos negócios corporativos.",
+      icon: "🛡️",
+      route: "/consulting/risk_management",
+      gradient: "from-indigo-500 to-purple-600",
+      bgPattern: "risk",
     },
   ];
 
@@ -92,8 +102,14 @@ const Consultorias = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="text-sm font-medium text-cyan-400 mb-4 tracking-wider uppercase">
-              EXPERTISE ESPECIALIZADA
+            <div
+              className={`inline-block text-sm font-mono text-cyan-400 mb-4 px-4 py-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Expertise Especializada
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               <span className="block">Consultorias</span>
@@ -114,43 +130,39 @@ const Consultorias = () => {
 
         {/* Consultorias Showcase - Layout Grid Organizado */}
         <div className="lg:grid lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto hidden">
-          {/* Cards Seletores - Esquerda */}
+          {/* Cards Seletores - Esquerda (3 primeiros) */}
           <div className="lg:col-span-1 space-y-4">
-            {consultorias
-              .slice(0, Math.ceil(consultorias.length / 2))
-              .map((consultoria, index) => (
+            {consultorias.slice(0, 3).map((consultoria, index) => (
+              <div
+                key={index}
+                className={`group cursor-pointer transition-all duration-500 hover:scale-105 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                } ${index === activeCard ? "" : ""}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+                onClick={() => setActiveCard(index)}
+              >
                 <div
-                  key={index}
-                  className={`group cursor-pointer transition-all duration-500 hover:scale-105 ${
-                    isVisible
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 -translate-x-10"
-                  } ${index === activeCard ? "" : ""}`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                  onClick={() => setActiveCard(index)}
+                  className={`relative p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-cyan-400/50 transition-all duration-300 ${
+                    index === activeCard ? "bg-white/20 border-cyan-400/50" : ""
+                  }`}
                 >
-                  <div
-                    className={`relative p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-cyan-400/50 transition-all duration-300 ${
-                      index === activeCard
-                        ? "bg-white/20 border-cyan-400/50"
-                        : ""
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`w-12 h-12 rounded-lg bg-gradient-to-r ${consultoria.gradient} flex items-center justify-center text-2xl`}
-                      >
-                        {consultoria.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-white font-semibold text-sm leading-tight">
-                          {consultoria.title}
-                        </h4>
-                      </div>
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`w-12 h-12 rounded-lg bg-gradient-to-r ${consultoria.gradient} flex items-center justify-center text-2xl`}
+                    >
+                      {consultoria.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-white font-semibold text-sm leading-tight">
+                        {consultoria.title}
+                      </h4>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
 
           {/* Card Principal - Centro */}
@@ -178,7 +190,8 @@ const Consultorias = () => {
                     {consultorias[activeCard].description}
                   </p>
                   <button
-                    className={`px-6 py-3 bg-gradient-to-r ${consultorias[activeCard].gradient} text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-1 transform text-sm`}
+                    className={`px-6 py-3 bg-gradient-to-r ${consultorias[activeCard].gradient} text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-1 transform text-sm cursor-pointer`}
+                    onClick={() => navigate("/contact")}
                   >
                     Solicitar Consultoria
                   </button>
@@ -187,46 +200,44 @@ const Consultorias = () => {
             </div>
           </div>
 
-          {/* Cards Seletores - Direita */}
+          {/* Cards Seletores - Direita (3 últimos) */}
           <div className="lg:col-span-1 space-y-4">
-            {consultorias
-              .slice(Math.ceil(consultorias.length / 2))
-              .map((consultoria, index) => {
-                const realIndex = index + Math.ceil(consultorias.length / 2);
-                return (
+            {consultorias.slice(3, 6).map((consultoria, index) => {
+              const realIndex = index + 3;
+              return (
+                <div
+                  key={realIndex}
+                  className={`group cursor-pointer transition-all duration-500 hover:scale-105 ${
+                    isVisible
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 translate-x-10"
+                  } ${realIndex === activeCard ? "" : ""}`}
+                  style={{ transitionDelay: `${(index + 3) * 100}ms` }}
+                  onClick={() => setActiveCard(realIndex)}
+                >
                   <div
-                    key={realIndex}
-                    className={`group cursor-pointer transition-all duration-500 hover:scale-105 ${
-                      isVisible
-                        ? "opacity-100 translate-x-0"
-                        : "opacity-0 translate-x-10"
-                    } ${realIndex === activeCard ? "" : ""}`}
-                    style={{ transitionDelay: `${(index + 3) * 100}ms` }}
-                    onClick={() => setActiveCard(realIndex)}
+                    className={`relative p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-cyan-400/50 transition-all duration-300 ${
+                      realIndex === activeCard
+                        ? "bg-white/20 border-cyan-400/50"
+                        : ""
+                    }`}
                   >
-                    <div
-                      className={`relative p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-cyan-400/50 transition-all duration-300 ${
-                        realIndex === activeCard
-                          ? "bg-white/20 border-cyan-400/50"
-                          : ""
-                      }`}
-                    >
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`w-12 h-12 rounded-lg bg-gradient-to-r ${consultoria.gradient} flex items-center justify-center text-2xl`}
-                        >
-                          {consultoria.icon}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-white font-semibold text-sm leading-tight">
-                            {consultoria.title}
-                          </h4>
-                        </div>
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={`w-12 h-12 rounded-lg bg-gradient-to-r ${consultoria.gradient} flex items-center justify-center text-2xl`}
+                      >
+                        {consultoria.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-white font-semibold text-sm leading-tight">
+                          {consultoria.title}
+                        </h4>
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -272,7 +283,8 @@ const Consultorias = () => {
                 {consultorias[activeCard].description}
               </p>
               <button
-                className={`px-6 py-2 bg-gradient-to-r ${consultorias[activeCard].gradient} text-white font-semibold rounded-full text-sm`}
+                className={`px-6 py-2 bg-gradient-to-r ${consultorias[activeCard].gradient} text-white font-semibold rounded-full text-sm cursor-pointer`}
+                onClick={() => navigate("/contact")}
               >
                 Solicitar Consultoria
               </button>
@@ -286,7 +298,7 @@ const Consultorias = () => {
             <button
               key={index}
               onClick={() => setActiveCard(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
                 index === activeCard
                   ? `bg-gradient-to-r ${consultorias[index].gradient} shadow-lg`
                   : "bg-white/30 hover:bg-white/50"

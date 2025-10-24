@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logoVerde from "../assets/logoVerde.png";
 
 const Footer = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,11 +80,8 @@ const Footer = () => {
                 </a>
 
                 {/* Email */}
-                <a
-                  href="mailto:contato@sec365.com.br"
-                  className="flex items-center gap-3 text-gray-300 hover:text-primary transition-colors duration-300 group"
-                >
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center gap-3 text-gray-300">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <svg
                       className="w-4 h-4 text-white"
                       fill="none"
@@ -98,12 +97,12 @@ const Footer = () => {
                     </svg>
                   </div>
                   <span>contato@sec365.com.br</span>
-                </a>
+                </div>
               </div>
             </div>
 
             {/* Social Media */}
-            <div>
+            <div className="hidden">
               <h4 className="text-lg font-semibold text-cyan-400 mb-4">
                 Redes Sociais
               </h4>
@@ -236,24 +235,18 @@ const Footer = () => {
               © 2024 SEC365. Todos os direitos reservados.
             </div>
             <div className="flex gap-6 text-sm text-gray-400">
-              <a
-                href="#"
-                className="hover:text-primary transition-colors duration-300"
+              <button
+                onClick={() => navigate("/about/privacy_policies")}
+                className="hover:text-primary transition-colors duration-300 cursor-pointer"
               >
                 Política de Privacidade
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-colors duration-300"
-              >
-                Termos de Uso
-              </a>
-              <a
-                href="#"
-                className="hover:text-primary transition-colors duration-300"
+              </button>
+              <button
+                onClick={() => navigate("/about/code_of_ethics_conduct")}
+                className="hover:text-primary transition-colors duration-300 cursor-pointer"
               >
                 Código de Ética
-              </a>
+              </button>
             </div>
           </div>
         </div>

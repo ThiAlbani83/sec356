@@ -124,8 +124,14 @@ const Certificados = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="text-sm font-medium text-cyan-400 mb-4 tracking-wider uppercase">
-              CREDENCIAIS DE EXCELÊNCIA
+            <div
+              className={`inline-block text-sm font-mono text-cyan-400 mb-4 px-4 py-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Credenciais de Excelência
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               <span className="block">Certificações</span>

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -13,7 +15,7 @@ const Services = () => {
       description:
         "A análise automatizada baseada em IA e ML que detectam e investigam ameaças com agilidade, aplicando análises sofisticadas e inteligência contra ameaças. Nossa solução completa vem com SOC e oferece contexto completo e automatizado para uma visão centrada no ataque.",
       icon: "🛡️",
-      route: "/services/mss",
+      route: "/services/managed_security_services",
       gradient: "from-cyan-500 to-blue-600",
     },
     {
@@ -21,7 +23,7 @@ const Services = () => {
       description:
         "Análise de Vulnerabilidades é um processo contínuo que inclui a descoberta de ativos vulneráveis, monitoramento programável e defesa cibernética tática, protegendo contra ataques com métricas únicas desenvolvidas com base em IA e Cyber Exposure.",
       icon: "🔍",
-      route: "/services/gestao-vulnerabilidade",
+      route: "/services/vulnerability_management",
       gradient: "from-blue-500 to-indigo-600",
     },
     {
@@ -29,21 +31,48 @@ const Services = () => {
       description:
         "Realize testes de simulações de spear phishing entre seus colaboradores para avaliar a susceptibilidade de quem esta mais vulnerável a serem vítimas de fraudes eletrônicas, inclusive a ataques de Comprometimento de e-mail Corporativo (CeC).",
       icon: "🎯",
-      route: "/services/corporative-phishing",
+      route: "/services/corporative_phishing",
       gradient: "from-indigo-500 to-purple-600",
     },
     {
       title: "Teste de Intrusão | Pentest",
       description:
         "Pentest é crucial para verificar a eficácia da segurança empresarial contra ataques internos/externos. Nossas simulações avançadas, éticas e profissionais seguem normas de segurança internacionais, testando toda e qualquer tipo de ambiente.",
-      icon: "⚡",
-      route: "/services/pentest",
+      icon: "🔒",
+      route: "/services/intrusion_testing",
       gradient: "from-purple-500 to-pink-600",
+    },
+    {
+      title: "Threat Intelligence",
+      description:
+        "Em um cenário digital repleto de crimes online e em constante evolução, a adoção de estratégias proativas de segurança é crucial. Este serviço monitora dezenas de milhares de feeds de informação criminosa na internet, identificando ameaças potenciais e padrões anômalos.",
+      icon: "🧠",
+      route: "/services/threat_intelligence",
+      gradient: "from-pink-500 to-red-600",
+    },
+    {
+      title: "Purple Team Assessment",
+      description:
+        "Avalie a capacidade de sua equipe de tecnologia em prevenir, detectar e responder a ataques cibernéticos por meio de cenários realistas. Nossa Avaliação fornece evidências quantificáveis da eficácia ao seu ambiente, enquanto orienta sua equipe com técnicas em cada fase do ciclo de ataque.",
+      icon: "⚔️",
+      route: "/services/purple_team_assessment",
+      gradient: "from-red-500 to-yellow-600",
+    },
+    {
+      title: "SIEM | XRD - SaaS",
+      description:
+        "Integre nossa equipe de segurança à sua empresa e obtenha uma extensão da sua área de tecnologia. Assegure disponibilidade, gestão e atendimento ágil com expertise em análise de segurança, detecção de invasão, análise de dados de registro, monitoramento de dados de arquivos, detecção de vulnerabilidades, conformidade e segurança na nuvem.",
+      icon: "📊",
+      route: "/services/siem_saas",
+      gradient: "from-yellow-500 to-green-600",
     },
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden">
+    <section
+      id="services"
+      className="relative py-20 bg-gradient-to-br from-slate-50 to-gray-100 overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -61,8 +90,14 @@ const Services = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="text-sm font-medium text-cyan-600 mb-4 tracking-wider uppercase">
-              SOLUÇÕES ESPECIALIZADAS
+            <div
+              className={`inline-block text-sm font-mono text-cyan-600 mb-4 px-4 py-2 bg-cyan-50 rounded-lg border border-cyan-200 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Soluções Especializadas
             </div>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
@@ -97,6 +132,10 @@ const Services = () => {
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
+              } ${
+                services.length % 2 === 1 && index === services.length - 1
+                  ? "md:col-span-2"
+                  : ""
               }`}
               style={{
                 transitionDelay: `${(index + 1) * 200}ms`,
@@ -122,7 +161,7 @@ const Services = () => {
                 </h3>
 
                 {/* Service Description */}
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 leading-relaxed mb-6 text-sm text-center">
                   {service.description}
                 </p>
 
@@ -131,8 +170,7 @@ const Services = () => {
                   <button
                     className={`group/btn px-6 py-3 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 transform focus:outline-none focus:ring-4 focus:ring-cyan-300/50`}
                     onClick={() => {
-                      // Aqui você pode adicionar a navegação para a página específica do serviço
-                      console.log(`Navegando para: ${service.route}`);
+                      navigate(service.route);
                     }}
                   >
                     <span className="flex items-center gap-2">

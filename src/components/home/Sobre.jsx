@@ -101,8 +101,14 @@ const Sobre = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="text-sm font-medium text-cyan-400 mb-4 tracking-wider uppercase">
-              QUEM SOMOS
+            <div
+              className={`inline-block text-sm font-mono text-cyan-400 mb-4 px-4 py-2 bg-cyan-500/10 rounded-lg border border-cyan-500/30 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Quem Somos
             </div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
               <span className="block">Promovendo a</span>
@@ -114,7 +120,7 @@ const Sobre = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Left Content - Description */}
           <div
             className={`transition-all duration-1000 delay-300 ${
@@ -222,7 +228,7 @@ const Sobre = () => {
                 }`}
                 style={{ transitionDelay: `${(index + 8) * 100}ms` }}
               >
-                <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 h-64 flex flex-col">
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 h-64 flex flex-col items-center">
                   {/* Icon Container */}
                   <div
                     className={`w-12 h-12 rounded-lg bg-gradient-to-r ${feature.color} flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
@@ -231,11 +237,11 @@ const Sobre = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 flex flex-col">
+                  <div className="flex-1 flex flex-col items-center">
                     <h4 className="text-white font-semibold text-sm mb-3 leading-tight flex-shrink-0">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-300 text-xs leading-relaxed flex-1">
+                    <p className="text-gray-300 text-xs leading-relaxed flex-1 text-center">
                       {feature.description}
                     </p>
                   </div>
@@ -257,7 +263,17 @@ const Sobre = () => {
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 transform">
+            <button
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 transform cursor-pointer"
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/contact";
+                }
+              }}
+            >
               <span>Entre em Contato</span>
               <svg
                 className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"

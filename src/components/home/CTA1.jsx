@@ -40,8 +40,14 @@ const CTA1 = () => {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="text-sm font-medium text-cyan-600 mb-4 tracking-wider uppercase">
-              THREAT INTELLIGENCE AVANÇADA
+            <div
+              className={`inline-block text-sm font-mono text-cyan-600 mb-4 px-4 py-2 bg-cyan-50 rounded-lg border border-cyan-200 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              Threat Intelligence Avançada
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
               <span className="block">Análise Completa</span>
@@ -118,7 +124,17 @@ const CTA1 = () => {
 
               {/* CTA Button */}
               <div className="pt-4">
-                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 transform">
+                <button
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 transform cursor-pointer"
+                  onClick={() => {
+                    const contactSection = document.getElementById("contact");
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      window.location.href = "/contact";
+                    }
+                  }}
+                >
                   <span>Contato</span>
                   <svg
                     className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"

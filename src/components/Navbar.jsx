@@ -102,7 +102,12 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop Portal Button */}
-      <div className="hidden md:block bg-primary text-black px-6 py-2 rounded-lg hover:bg-primary/50 transition duration-300 cursor-pointer">
+      <div
+        className="hidden md:block bg-primary text-black px-6 py-2 rounded-lg hover:bg-primary/50 transition duration-300 cursor-pointer"
+        onClick={() => {
+          window.open("https://sec365.com.br/portaldocliente/", "_blank");
+        }}
+      >
         Portal do Cliente
       </div>
 

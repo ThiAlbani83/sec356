@@ -90,7 +90,17 @@ const HeroIntroduce = () => {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              <button className="group px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 drop-shadow-lg">
+              <button
+                className="group px-6 py-3 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-cyan-600/30 hover:-translate-y-1 drop-shadow-lg cursor-pointer"
+                onClick={() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    window.location.href = "/contact";
+                  }
+                }}
+              >
                 FALE CONOSCO
               </button>
             </div>

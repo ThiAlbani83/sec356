@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import Securityservices from "./pages/services/Securityservices";
 import GestaoVulnerabilidade from "./pages/services/GestaoVulnerabilidade";
 import ThreatIntelligence from "./pages/services/ThreatIntelligence";
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <div className="pt-20">
         <Routes>
