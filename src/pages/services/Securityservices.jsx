@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Securityservices = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -146,11 +148,11 @@ const Securityservices = () => {
                 Excelência em Detecção, Defesa e Resposta a Incidentes com
                 Serviços Gerenciados
               </span>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase">
                 <span className="text-primary">Managed</span> Security Services
               </h1>
               <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Um sistema desenvolvido por brasileiro, concebido por doutores
+                Um sistema desenvolvido por brasileiros, concebido por doutores
                 em cibersegurança em que adota uma abordagem única e contínua na
                 detecção e prevenção de violações cibernéticas, assegurando a
                 proteção constante de seus ativos digitais.
@@ -307,7 +309,7 @@ const Securityservices = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Cybersecurity Delivered -{" "}
               <span className="text-primary">SaaS</span>
             </h2>
@@ -329,7 +331,7 @@ const Securityservices = () => {
             {nivels.map((nivel, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
                 <div
                   className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"
@@ -339,7 +341,7 @@ const Securityservices = () => {
                 ></div>
                 <div className="relative z-10">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${nivel.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${nivel.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                   >
                     {nivel.icon}
                   </div>
@@ -370,9 +372,9 @@ const Securityservices = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-4">
@@ -406,7 +408,7 @@ const Securityservices = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center flex flex-col items-center"
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = `linear-gradient(135deg, ${benefit.color
                     .split(" ")[0]
@@ -420,7 +422,7 @@ const Securityservices = () => {
                   e.currentTarget.style.opacity = "1";
                 }}
               >
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col items-center text-center">
                   <div
                     className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
@@ -429,7 +431,7 @@ const Securityservices = () => {
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     {benefit.title}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 inline-block text-left">
                     {benefit.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
@@ -454,7 +456,10 @@ const Securityservices = () => {
             Entre em contato conosco e descubra como nossos Managed Security
             Services podem transformar a segurança da sua organização.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+            onClick={() => navigate("/contact")}
+          >
             Solicitar Consultoria
           </button>
         </div>

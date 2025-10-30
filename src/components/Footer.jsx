@@ -232,7 +232,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-gray-400 text-sm">
-              © 2024 SEC365. Todos os direitos reservados.
+              © 2025 SEC365. Todos os direitos reservados.
             </div>
             <div className="flex gap-6 text-sm text-gray-400">
               <button

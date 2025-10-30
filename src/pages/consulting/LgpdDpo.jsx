@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LgpdDpo = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -220,7 +222,7 @@ const LgpdDpo = () => {
               }`}
             >
               <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
-                CONSTRUINDO UM PROGRAMA DE PRIVACIDADE EM CONFORMIDADE COM A
+                Construindo um programa de privacidade em conformidade com a
                 LGPD
               </span>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -280,10 +282,10 @@ const LgpdDpo = () => {
             {ourSkills.map((skill, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${skill.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-16 h-16 bg-gradient-to-r ${skill.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                 >
                   {skill.icon}
                 </div>
@@ -303,7 +305,7 @@ const LgpdDpo = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Você já considerou as vantagens da terceirização das funções de um{" "}
               <span className="text-primary">DPOaaS?</span>
             </h2>
@@ -316,9 +318,9 @@ const LgpdDpo = () => {
             {dpoAdvantages.map((advantage, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
                   {advantage.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
@@ -337,7 +339,7 @@ const LgpdDpo = () => {
       <section className="py-20 bg-gradient-to-br from-primary via-blue-500 to-indigo-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Por que nomear o DPO é{" "}
               <span className="text-yellow-300">fundamental?</span>
             </h2>
@@ -354,8 +356,8 @@ const LgpdDpo = () => {
                 key={index}
                 className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
               >
-                <div className="flex items-start gap-6">
-                  <div className="text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex flex-col items-center text-center gap-6">
+                  <div className="text-4xl text-yellow-300 group-hover:scale-110 transition-transform duration-300 mx-auto">
                     {responsibility.icon}
                   </div>
                   <div>
@@ -377,7 +379,7 @@ const LgpdDpo = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Quais são as nossas funções como{" "}
               <span className="text-primary">DPOaaS</span>
             </h2>
@@ -391,11 +393,11 @@ const LgpdDpo = () => {
             {dpoFunctions.map((func, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center gap-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${func.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${func.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                   >
                     {func.icon}
                   </div>
@@ -460,7 +462,10 @@ const LgpdDpo = () => {
             Entre em contato conosco e descubra como nosso serviço de DPOaaS
             pode garantir a conformidade completa da sua organização com a LGPD.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          >
             Solicitar Consultoria
           </button>
         </div>

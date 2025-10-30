@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MissionVisionValuesPurposes = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -245,7 +247,7 @@ const MissionVisionValuesPurposes = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Características que nos{" "}
               <span className="text-primary">Definem</span>
             </h2>
@@ -366,7 +368,7 @@ const MissionVisionValuesPurposes = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Nosso <span className="text-primary">Impacto</span>
             </h2>
           </div>
@@ -427,7 +429,10 @@ const MissionVisionValuesPurposes = () => {
             Descubra como nossa missão, visão, valores e propósitos se traduzem
             em resultados excepcionais para sua organização.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          >
             Conhecer Mais
           </button>
         </div>

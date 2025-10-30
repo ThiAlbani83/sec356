@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CisoAsAService = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -181,46 +183,53 @@ const CisoAsAService = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Alguns dos principais aspectos dessa{" "}
               <span className="text-primary">função</span> incluem:
             </h2>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cisoResponsibilities.map((responsibility, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
               >
-                <div className="flex items-start gap-8">
+                <div className="text-center mb-6">
                   <div
-                    className={`w-20 h-20 bg-gradient-to-r ${responsibility.color} rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${responsibility.color} rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
                   >
                     {responsibility.icon}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-primary mb-6 group-hover:text-cyan-300 transition-colors duration-300">
-                      {responsibility.category}
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {responsibility.items.map((item, itemIndex) => (
-                        <div
-                          key={itemIndex}
-                          className="flex items-center gap-4 p-4 bg-gray-800/30 rounded-xl"
+                  <h3 className="text-xl font-bold text-primary group-hover:text-cyan-300 transition-colors duration-300">
+                    {responsibility.category}
+                  </h3>
+                </div>
+
+                <div className="space-y-3">
+                  {responsibility.items.map((item, itemIndex) => (
+                    <div
+                      key={itemIndex}
+                      className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-lg hover:bg-gray-800/50 transition-colors duration-200"
+                    >
+                      <div className="flex items-center justify-center w-8 h-8 bg-green-500/20 rounded-full flex-shrink-0 mt-0.5">
+                        <svg
+                          className="w-4 h-4 text-green-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
                         >
-                          <div className="flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-lg">
-                            <span className="text-green-400 font-bold text-sm">
-                              100%
-                            </span>
-                          </div>
-                          <p className="text-gray-300 text-sm leading-relaxed flex-1">
-                            {item}
-                          </p>
-                        </div>
-                      ))}
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <p className="text-gray-300 text-sm leading-relaxed flex-1">
+                        {item}
+                      </p>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -357,7 +366,7 @@ const CisoAsAService = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Impacto <span className="text-primary">Executivo</span>
             </h2>
           </div>
@@ -418,7 +427,10 @@ const CisoAsAService = () => {
             Entre em contato conosco e descubra como nosso CISO as a Service
             pode transformar a governança de segurança da sua organização.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          >
             Agendar Consultoria Executiva
           </button>
         </div>

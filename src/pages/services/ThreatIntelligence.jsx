@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ThreatIntelligence = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -39,7 +41,7 @@ const ThreatIntelligence = () => {
     {
       title: "Busca Dinâmica",
       description:
-        "Indexão de ameaças direcionadas e persistentes com base em tendências mapeadas.",
+        "Indexação de ameaças direcionadas e persistentes com base em tendências mapeadas.",
       icon: "🔄",
       gradient: "from-pink-400 to-red-500",
     },
@@ -275,10 +277,10 @@ const ThreatIntelligence = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                 >
                   {service.icon}
                 </div>
@@ -298,10 +300,9 @@ const ThreatIntelligence = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Threat Intelligence da SEC365 oferece{" "}
-              <span className="text-primary">segurança sólida</span> em um mundo
-              digital complexo.
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
+              segurança <span className="text-primary">sólida</span> em um mundo
+              digital <span className="text-primary">complexo.</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
               A fraude é um desafio contextual e requer uma estratégia em
@@ -316,9 +317,9 @@ const ThreatIntelligence = () => {
             {threatCapabilities.map((capability, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   {capability.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
@@ -346,11 +347,11 @@ const ThreatIntelligence = () => {
             {processSteps.map((step, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-6`}
                   >
                     {step.icon}
                   </div>
@@ -376,7 +377,7 @@ const ThreatIntelligence = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Benefícios Principais{" "}
               <span className="text-primary">Imediatos</span>
             </h2>
@@ -391,11 +392,11 @@ const ThreatIntelligence = () => {
             {mainBenefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-6`}
                   >
                     {benefit.icon}
                   </div>
@@ -424,7 +425,10 @@ const ThreatIntelligence = () => {
             Entre em contato conosco e descubra como nossa Threat Intelligence
             pode fortalecer a segurança da sua organização.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+            onClick={() => navigate("/contact")}
+          >
             Solicitar Demonstração
           </button>
         </div>

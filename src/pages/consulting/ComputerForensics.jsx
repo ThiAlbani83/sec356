@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ComputerForensics = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -308,7 +310,7 @@ const ComputerForensics = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Processo <span className="text-primary">Forense</span>
             </h2>
           </div>
@@ -367,7 +369,7 @@ const ComputerForensics = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Benefícios Principais{" "}
               <span className="text-primary">Imediatos</span>
             </h2>
@@ -379,9 +381,9 @@ const ComputerForensics = () => {
                 key={index}
                 className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center text-center gap-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                   >
                     {benefit.icon}
                   </div>
@@ -404,7 +406,7 @@ const ComputerForensics = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Tipos de <span className="text-primary">Evidências Digitais</span>
             </h2>
           </div>
@@ -473,7 +475,10 @@ const ComputerForensics = () => {
             Entre em contato conosco e descubra como nossa Perícia Forense
             Computacional pode revelar evidências cruciais para seu caso.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          >
             Solicitar Perícia
           </button>
         </div>

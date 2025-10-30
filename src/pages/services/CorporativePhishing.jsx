@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CorporativePhishing = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -138,8 +140,8 @@ const CorporativePhishing = () => {
               }`}
             >
               <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
-                MAIS QUE SEGURANÇA, UM ECOSSISTEMA DE CONSCIENTIZAÇÃO EM
-                CIBERSECURITY PARA SUA EQUIPE
+                Mais que segurança, um ecossistema de conscientização em
+                cibersegurança para sua equipe
               </span>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 <span className="text-primary">SPEAR PHISHING</span>
@@ -255,10 +257,10 @@ const CorporativePhishing = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${benefit.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-16 h-16 bg-gradient-to-r ${benefit.gradient} rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                 >
                   {benefit.icon}
                 </div>
@@ -278,7 +280,7 @@ const CorporativePhishing = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 uppercase">
               Nossa <span className="text-primary">Abordagem</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -291,11 +293,11 @@ const CorporativePhishing = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                className="group bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 text-center"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center text-2xl text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mb-6`}
                   >
                     {feature.icon}
                   </div>
@@ -318,7 +320,7 @@ const CorporativePhishing = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Resultados <span className="text-primary">Comprovados</span>
             </h2>
           </div>
@@ -365,7 +367,10 @@ const CorporativePhishing = () => {
             Entre em contato conosco e descubra como podemos proteger sua
             organização contra ataques de spear phishing corporativo.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+            onClick={() => navigate("/contact")}
+          >
             Iniciar Proteção
           </button>
         </div>

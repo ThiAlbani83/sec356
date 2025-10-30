@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PoliticasDePrivacidade = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -250,12 +252,12 @@ Nossos serviços são prestados em estrita observância às recomendações, mel
               <p className="text-gray-600 mb-6">
                 Entre em contato conosco para esclarecimentos
               </p>
-              <a
-                href="mailto:dpo@sec365.com.br"
-                className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300"
+              <button
+                onClick={() => navigate("/contact")}
+                className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300 cursor-pointer"
               >
                 📧 Falar com DPO
-              </a>
+              </button>
             </div>
           </div>
         </div>

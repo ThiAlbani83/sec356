@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Importação das imagens dos certificados (mesmas do Certificados.jsx)
 import casp from "../../assets/casp.png";
@@ -21,6 +22,7 @@ import posdoc from "../../assets/posdoc.png";
 
 const OurTeam = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsVisible(true);
@@ -174,12 +176,12 @@ const OurTeam = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              SOBRE O <span className="text-primary">SERVIÇO</span>
+              SOBRE O <span className="text-primary">TIME</span>
             </h2>
           </div>
 
           <div className="max-w-6xl mx-auto space-y-8">
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl shadow-lg text-center">
               <p className="text-gray-700 leading-relaxed text-lg mb-6">
                 Contamos com uma equipe excepcional em cibersegurança, onde cada
                 membro é um guardião incansável da integridade digital. Com uma
@@ -313,7 +315,7 @@ const OurTeam = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Forças do Nosso <span className="text-primary">Time</span>
             </h2>
           </div>
@@ -324,9 +326,9 @@ const OurTeam = () => {
                 key={index}
                 className="group bg-black/20 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col items-center text-center gap-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${strength.gradient} rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 bg-gradient-to-r ${strength.gradient} rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300 mx-auto`}
                   >
                     {strength.icon}
                   </div>
@@ -366,7 +368,7 @@ const OurTeam = () => {
 
           {/* Certificates Grid */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-12 uppercase">
               Nossas <span className="text-primary">Certificações</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -424,7 +426,7 @@ const OurTeam = () => {
       <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase">
               Nossa <span className="text-primary">Excelência</span> em Números
             </h2>
           </div>
@@ -485,7 +487,10 @@ const OurTeam = () => {
             Entre em contato e descubra como nosso time excepcional pode
             transformar a segurança cibernética da sua organização.
           </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl">
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-white text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
+          >
             Falar com Especialistas
           </button>
         </div>
